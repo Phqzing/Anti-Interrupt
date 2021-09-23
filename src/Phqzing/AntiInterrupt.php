@@ -35,8 +35,8 @@ class AntiInterrupt extends PluginBase {
     $this->fighting[$enemy->getName()] = $player->getName();
   }
   
-  public function setTimer($player, $player2){
-    $this->plugin->timer[$player->getName()] = $this->getConfig()->get("timer");
-    $this->plugin->timer[$player2->getName()] = $this->getConfig()->get("timer");
+  public function setTimer(Player $player, Player $player2){
+    $this->timer[$player->getName()] = $this->getConfig()->get("timer");
+    $this->timer[$player2->getName()] = $this->getConfig()->get("timer");
   }
 }

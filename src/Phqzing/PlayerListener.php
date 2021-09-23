@@ -36,7 +36,7 @@ class PlayerListener implements Listener {
     $cause = $player->getLastDamageCause();
     
     if($cause instanceof EntityDamageByEntityEvent){
-      $killer = $causer->geDamager();
+      $killer = $causer->getDamager();
       if($killer instanceof Player and $player instanceof Player){
         unset($this->plugin->fighting[$player->getName()]);
         unset($this->plugin->fighting[$killer->getName()]);

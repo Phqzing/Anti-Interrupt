@@ -20,7 +20,7 @@ class AntiInterruptTask extends Task {
   public function onRun(int $tick){
     foreach($this->plugin->timer as $name => $time){
       if($time === 0){
-        $player = $this->plugin->getServer()->getPlayerExact();
+        $player = $this->plugin->getServer()->getPlayerExact($name);
         if($player instanceof Player){
           $this->plugin->removeEnemy($player);
         }

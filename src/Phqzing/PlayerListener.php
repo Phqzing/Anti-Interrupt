@@ -36,7 +36,7 @@ class PlayerListener implements Listener {
     $cause = $player->getLastDamageCause();
     
     if($cause instanceof EntityDamageByEntityEvent){
-      $killer = $causer->getDamager();
+      $killer = $cause->getDamager();
       if($killer instanceof Player and $player instanceof Player){
         unset($this->plugin->fighting[$player->getName()]);
         unset($this->plugin->fighting[$killer->getName()]);
@@ -52,22 +52,22 @@ class PlayerListener implements Listener {
     $cause = $player->getLastDamageCause();
     
     if($cause instanceof EntityDamageByEntityEvent){
-      $damger = $cause->getDamager();
-      if($damger instanceof Player and $player instanceof Player){
+      $damager = $cause->getDamager();
+      if($damager instanceof Player and $player instanceof Player){
         if($this->plugin->getEnemy($damager) === $player->getName() and $this->plugin->getEnemy($player) === $damager->getName()){
           $this->plugin->setTimer($damager, $player);
           return;
         }
         
-        if($this->plugin->getEnemy($damager) !== $player->getName() or $this->plugin->getEnemy($player) !== $damaer->getName()){
+        if($this->plugin->getEnemy($damager) !== $player->getName() or $this->plugin->getEnemy($player) !== $damager->getName()){
           $ev->setCancelled();
           if($this->plugin->getConfig()->get("send-message") === "true"){
           if($this->plugin->getConfig()->get("send-in-chat") === "true"){
-            $msg = $this->getConfig()->get("message");
+            $msg = $this->plugin->getConfig()->get("message");
             $msg = str_replace(["{damager}", "{victim}"], [$damager->getName(), $player->getName()], $msg);
             $damager->sendMessage($msg);
           }else{
-            $msg = $this->getConfig()->get("message");
+            $msg = $this->plugin->getConfig()->get("message");
             $msg = str_replace(["{damager}", "{victim}"], [$damager->getName(), $player->getName()], $msg);
             $damager->sendPopup($msg);
           }

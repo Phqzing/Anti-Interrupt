@@ -1,8 +1,9 @@
 # Anti-Interrupt
-Prevent players from interrupting other peoeple's fights
+Prevent players from interrupting other peoeple's fights.
 
-#Config / Settings
+# Config / Settings
 ```
+---
 #set this to false if you don't want to send a message if someome tries to interrupta fight
 send-message: true
 
@@ -18,4 +19,5 @@ message: "The player {victim} is fighting someone else"
 
 #if you have a CombatTag plugin I highly suggest to match the timer with the timer for the CombatTag plugin
 timer: 15
+...
 ```

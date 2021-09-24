@@ -1,6 +1,6 @@
 <?php
 
-namespace Phqzing;
+namespace Phqzing\AntiInterrupt;
 
 use pocketmine\event\Listener;
 use pocketmine\Player;

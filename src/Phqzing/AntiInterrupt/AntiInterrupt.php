@@ -4,7 +4,7 @@ namespace Phqzing\AntiInterrupt;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\Player;
-use Phqzing\tasks\AntiInterruptTask;
+use Phqzing\AntiInterrupt\tasks\AntiInterruptTask;
 
 class AntiInterrupt extends PluginBase {
   

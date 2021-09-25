@@ -37,6 +37,8 @@ class PlayerListener implements Listener {
     
     if($cause instanceof EntityDamageByEntityEvent){
       $killer = $cause->getDamager();
+      if(in_array($killer->getLevel()->getName(), $this->plugin->getConfig()->get("disabled-worlds"))) return;
+      if(in_array($player->getLevel()->getName(), $this->plugin->getConfig()->get("disabled-worlds"))) return;
       if($killer instanceof Player and $player instanceof Player){
         unset($this->plugin->fighting[$player->getName()]);
         unset($this->plugin->fighting[$killer->getName()]);
@@ -53,6 +55,8 @@ class PlayerListener implements Listener {
     
     if($cause instanceof EntityDamageByEntityEvent){
       $damager = $cause->getDamager();
+      if(in_array($killer->getLevel()->getName(), $this->plugin->getConfig()->get("disabled-worlds"))) return;
+      if(in_array($player->getLevel()->getName(), $this->plugin->getConfig()->get("disabled-worlds"))) return;
       if($damager instanceof Player and $player instanceof Player){
         if($this->plugin->getEnemy($damager) === $player->getName() and $this->plugin->getEnemy($player) === $damager->getName()){
           $this->plugin->setTimer($damager, $player);

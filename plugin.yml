@@ -3,3 +3,4 @@ author: Phqzing
 version: 0.0.1
 api: 3.0.0
 main: Phqzing\AntiInterrupt\AntiInterrupt
+description: "Prevents players from interrupting a fight or a 1vs1"

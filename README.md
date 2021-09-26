@@ -18,6 +18,7 @@ send-in-chat: true
 message: "The player {victim} is fighting someone else"
 
 #if you have a CombatLogger plugin I highly suggest to match the timer with the timer for the CombatLogger plugin
+#time is in seconds
 timer: 15
 
 #if you want to disable the anti-interrupt in a world just put the world name here

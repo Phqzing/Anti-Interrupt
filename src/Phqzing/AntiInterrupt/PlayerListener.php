@@ -53,17 +53,17 @@ class PlayerListener implements Listener {
     $player = $ev->getEntity();
     $cause = $player->getLastDamageCause();
     
-    if($cause instanceof EntityDamageByEntityEvent){
-      $damager = $cause->getDamager();
+    if($ev instanceof EntityDamageByEntityEvent){
+      $damager = $ev->getDamager();
       if(in_array($damager->getLevel()->getName(), $this->plugin->getConfig()->get("disabled-worlds"))) return;
       if(in_array($player->getLevel()->getName(), $this->plugin->getConfig()->get("disabled-worlds"))) return;
       if($damager instanceof Player and $player instanceof Player){
-        if($this->plugin->getEnemy($damager) === $player->getName() and $this->plugin->getEnemy($player) === $damager->getName()){
+        if($this->plugin->getEnemy($damager) == $player->getName() and $this->plugin->getEnemy($player) == $damager->getName()){
           $this->plugin->setTimer($damager, $player);
           return;
         }
         
-        if($this->plugin->getEnemy($damager) !== $player->getName() or $this->plugin->getEnemy($player) !== $damager->getName()){
+        if($this->plugin->getEnemy($damager) != $player->getName() or $this->plugin->getEnemy($player) != $damager->getName()){
           $ev->setCancelled();
           if($this->plugin->getConfig()->get("send-message") === "true"){
           if($this->plugin->getConfig()->get("send-in-chat") === "true"){
@@ -79,7 +79,7 @@ class PlayerListener implements Listener {
           return;
         }
         
-        if($this->plugin->getEnemy($damager) === "none" and $this->plugin->getEnemy($player) === "none"){
+        if($this->plugin->getEnemy($damager) == "none" and $this->plugin->getEnemy($player) == "none"){
           $this->plugin->setEnemy($damager, $player);
           $this->plugin->setTimer($damager, $player);
         }

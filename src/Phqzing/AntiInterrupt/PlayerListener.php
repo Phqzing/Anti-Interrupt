@@ -39,8 +39,8 @@ class PlayerListener implements Listener {
       $killer = $cause->getDamager();
       $level = $killer->getLevel()->getName();
       $level2 = $player->getLevel()->getName();
-      if(isset($this->plugin->getConfig()->get("disabled-worlds")[$level])) return;
-      if(isset($this->plugin->getConfig()->get("disabled-worlds")[$level2])) return;
+      if(in_array($level, $this->plugin->getConfig()->get("disabled-worlds")) and $this->plugin->getConfig()->get("allow-disabled-worlds")) return;
+      if(in_array($level2, $this->plugin->getConfig()->get("disabled-worlds")) and $this->plugin->getConfig()->get("allow-disabled-worlds")) return;
       if($killer instanceof Player and $player instanceof Player){
         unset($this->plugin->fighting[$player->getName()]);
         unset($this->plugin->fighting[$killer->getName()]);

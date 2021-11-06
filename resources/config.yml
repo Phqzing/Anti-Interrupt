@@ -19,7 +19,7 @@ timer: 15
 #if you want to disable the anti-interrupt in a world just put the world name here
 #If you don't want to disable the plugin in any world just leave it blank or just don't edit it
 #Note: the world name must be identical to the one in game
-disabled-words:
+disabled-worlds:
  - "example1"
  - "example2"
 ...

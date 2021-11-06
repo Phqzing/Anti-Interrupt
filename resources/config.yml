@@ -17,7 +17,7 @@ message: "The player {victim} is fighting someone else"
 timer: 15
 
 #if you want to disable the anti-interrupt in a world just put the world name here
-#If you don't want to disable the plugin in any world just leave it blank or just don't edit it
+#If you don't want to disable the plugin in any world set the "allow-disabled-worlds" to false 
 #Note: the world name must be identical to the one in game
 allow-disabled-worlds: true
 disabled-worlds:

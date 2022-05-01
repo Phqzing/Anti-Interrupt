@@ -34,7 +34,3 @@ disabled-words:
 - send message when a player tries to interrupt (can be disabled)
 - can be disabled in any world
 - can change timer
-
-# Bug Fixes / Added Features
-- Fixed the bug where you get "Internal Server Error" when damaging a person.
-- Added "allow-disabled-worlds" if you want to disable the plugin in other worlds.

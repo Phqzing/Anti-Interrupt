@@ -1,0 +1,26 @@
+---
+#set this to false if you don't want to send a message if someone tries to interrupt a fight
+send-message: true
+
+#set to:
+#true - send the message in chat
+#false - send the message as a Popup
+send-in-chat: true
+
+#this is the message that will be sent to the player who tries to interrupt
+#{damager} - the player that is trying to interrupt
+#{victim} - the player he is trying to interrupt
+message: "The player {victim} is fighting someone else"
+
+#if you have a CombatLogger plugin I highly suggest to match the timer with the timer for the CombatLogger plugin
+#timer is in seconds
+timer: 15
+
+#if you want to disable the anti-interrupt in a world just put the world name here
+#If you don't want to disable the plugin in any world set the "allow-disabled-worlds" to false 
+#Note: the world name must be identical to the one in game
+allow-disabled-worlds: true
+disabled-worlds:
+ - "example1"
+ - "example2"
+...

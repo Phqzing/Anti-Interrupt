@@ -15,7 +15,6 @@ class AntiInterrupt extends PluginBase {
     {
         @mkdir($this->getDataFolder());
         $this->saveDefaultConfig();
-        $this->getResource("config.yml");
         $this->getServer()->getPluginManager()->registerEvents(new PlayerListener($this), $this);
         $this->getScheduler()->scheduleRepeatingTask(new AntiInterruptTask($this), 20);
     }

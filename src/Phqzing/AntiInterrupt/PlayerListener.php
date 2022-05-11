@@ -48,10 +48,14 @@ class PlayerListener implements Listener {
             if(in_array($level2, $this->plugin->getConfig()->get("disabled-worlds")) and $this->plugin->getConfig()->get("allow-disabled-worlds")) return;
             if($killer instanceof Player and $killer->isConnected())
             {
-                unset($this->plugin->fighting[$player->getName()]);
-                unset($this->plugin->fighting[$killer->getName()]);
-                unset($this->plugin->timer[$player->getName()]);
-                unset($this->plugin->timer[$killer->getName()]);
+                if(isset($this->plugin->fighting[$player->getName()]))
+                   $this->plugin->fighting[$player->getName()] = "none";
+                if(isset($this->plugin->fighting[$killer->getName()]))
+                   $this->plugin->fighting[$killer->getName()] = "none";
+                if(isset($this->plugin->timer[$player->getName()]))
+                   unset($this->plugin->timer[$player->getName()]);
+                if(isset($this->plugin->timer[$killer->getName()]))
+                   unset($this->plugin->timer[$killer->getName()]);
             }
         }
     }
@@ -85,7 +89,6 @@ class PlayerListener implements Listener {
                 if($this->plugin->getEnemy($damager) != $player->getName() or $this->plugin->getEnemy($player) != $damager->getName())
                 {
                     $ev->cancel();
-                    var_dump("passed2");
                     if($this->plugin->getConfig()->get("send-message"))
                     {
                         if($this->plugin->getConfig()->get("send-in-chat"))

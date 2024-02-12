@@ -1,6 +1,6 @@
 name: Anti-Interrupt
 author: Phqzing
-version: 0.0.3
-api: 4.0.0
+version: 0.0.5
+api: 5.0.0
 main: Phqzing\AntiInterrupt\AntiInterrupt
 description: "Prevents players from interrupting a fight or a 1vs1"

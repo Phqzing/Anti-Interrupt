@@ -22,7 +22,7 @@ class AntiInterrupt extends PluginBase {
 
     public function getEnemy(Player $player)
     {
-        return $this->fighting[$player->getName()];
+        return $this->fighting[$player->getName()] ?? "none";
     }
 
     public function removeEnemy(Player $player):void
